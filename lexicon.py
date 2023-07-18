@@ -17,7 +17,7 @@ from types import SimpleNamespace
 # --------------------------
 
 # Hardcoding the rootfolder for consistency
-_ROOT: str = path.realpath(r"C:\Users\Gabey\Documents\cs\plotting\furrylist")
+_ROOT: str = path.realpath(r"/home/gabey/furrylist_plot")
 
 # os.path.realpath will remove unnecessary slashes. 
 def _absolute_path(relative_path: str) -> str:
