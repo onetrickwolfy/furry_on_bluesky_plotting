@@ -45,7 +45,7 @@ with open(lexicon.files.raw_daily) as f:
                 "weekday": weekday,
                 "month": month,
                 "day": day,
-                "daily_likes": daily_furries,
+                "daily_likes": daily_likes,
                 "daily_posts": daily_posts,
                 "daily_furries": daily_furries,
                 "elapsed_day":  elapsed_day,
