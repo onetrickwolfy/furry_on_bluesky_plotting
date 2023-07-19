@@ -45,10 +45,12 @@ def _absolute_path(relative_path: str) -> str:
 
 folders = SimpleNamespace(
     processed_folder = _absolute_path("data/processed"),
-    raw_folder = _absolute_path("data/raw")
+    raw_folder = _absolute_path("data/raw"),
+    plots_folder = _absolute_path("dataplots")
 )
 
 files = SimpleNamespace(
     raw_daily = _absolute_path("data/raw/daily.csv"),
-    processed_daily = _absolute_path("data/processed/processed_daily.csv")
+    processed_daily = _absolute_path("data/processed/processed_daily.csv"),
+    heatmaps_plots = _absolute_path("data/plots/heatmaps.png")
 )

@@ -9,19 +9,32 @@ import seaborn.objects as so
 # local imports
 import lexicon
 
-# Setting default heme
+# Set-up
+# --------------
+
+# Setting theme.
 sns.set_theme(style="darkgrid")
 
-# Creating multiple spots for plots
+# Preparing data aqnd extracting infos about them
+daily_data = pd.read_csv(lexicon.files.processed_daily) 
+start = min(daily_data['date'])
+end = max(daily_data['date'])
+daily_data = daily_data.drop(
+    columns=["date", "total_bsky_users", "furry_ratio", ]
+)
+
+print(daily_data)
+
+# Setting up the main area for the plots.
 figure, axes = plt.subplots(1, 3, sharex=True, sharey=True, figsize=(12,5))
-plt.suptitle('Actvity on furryli.st since 2023-05-13', weight='bold')
+plt.suptitle(f'Actvity on furryli.st from {start} to {end}', weight='bold')
 figure.supxlabel("Months")
 figure.supylabel("Weekday")
-# Loading daily dataset and sorting it by day.
-daily_data = pd.read_csv(lexicon.files.processed_daily) 
-ordered_daily = daily_data.sort_values(by=["elapsed_day"], ascending=True)
 
-# Creating daily user heat map
+# Plotting
+# --------------
+
+# User joining
 daily_users = pd.pivot_table(
     daily_data,
     index='weekday',
@@ -36,10 +49,11 @@ sns.heatmap(
     center=True,
     annot_kws={'size': 'x-small', 'alpha': 0.95}
 )
+
 axes[0].set(xlabel="", ylabel="")
 axes[0].set_title("New furries added to the feed")
 
-# Creating daily posts heat map
+# Skeets recorded.
 weekly_posts = pd.pivot_table(
     daily_data,
     index='weekday',
@@ -47,16 +61,18 @@ weekly_posts = pd.pivot_table(
     values='daily_posts',
     aggfunc='sum'
 )
+
 sns.heatmap(
     weekly_posts, annot=True, fmt="d", linewidths=1,
     square=True, cbar=1,  cmap='Blues',ax=axes[1],
     center=True,
     annot_kws={'size': 'x-small', 'alpha': 0.95}
 )
+
 axes[1].set(xlabel="", ylabel="")
 axes[1].set_title("Skeets posted")
 
-# Creating daily likes heat map
+# Like button pressed
 weekly_likes = pd.pivot_table(
     daily_data,
     index='weekday',
@@ -64,14 +80,20 @@ weekly_likes = pd.pivot_table(
     values='daily_likes',
     aggfunc='sum',
 )
+
 sns.heatmap(
     weekly_likes, annot=True, fmt="d", linewidths=1,
     square=True, cbar=1,  cmap='Blues',ax=axes[2],
     center=True,
     annot_kws={'size': 'x-small', 'alpha': 0.95}
 )
+
 axes[2].set(xlabel="", ylabel="")
 axes[2].set_title("Total likes")
 
+# Rendering
+# --------------
+
 figure.tight_layout(pad=1.0)
+figure.savefig(lexicon.files.heatmaps_plots)
 plt.show()
