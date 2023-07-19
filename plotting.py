@@ -23,8 +23,6 @@ daily_data = daily_data.drop(
     columns=["date", "total_bsky_users", "furry_ratio", ]
 )
 
-print(daily_data)
-
 # Setting up the main area for the plots.
 figure, axes = plt.subplots(1, 3, sharex=True, sharey=True, figsize=(12,5))
 plt.suptitle(f'Actvity on furryli.st from {start} to {end}', weight='bold')
