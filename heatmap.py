@@ -19,9 +19,6 @@ sns.set_theme(style="darkgrid")
 daily_data = pd.read_csv(lexicon.files.processed_daily) 
 start = min(daily_data['date'])
 end = max(daily_data['date'])
-daily_data = daily_data.drop(
-    columns=["date", "total_bsky_users", "furry_ratio", ]
-)
 
 # Setting up the main area for the plots.
 figure, axes = plt.subplots(1, 3, sharex=True, sharey=True, figsize=(12,5))
