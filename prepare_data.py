@@ -5,6 +5,7 @@ import lexicon
 
 # Set-up 
 # Creating the directory structure ahead of time.
+# TODO: Prepare data with NUMPY.
 # --------------------------
 
 if not path.exists(lexicon.folders.processed_folder):
