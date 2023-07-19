@@ -94,4 +94,7 @@ axes[2].set_title("Total likes")
 
 figure.tight_layout(pad=1.0)
 figure.savefig(lexicon.files.heatmaps_plots)
-plt.show()
+
+# Only showing if called from main.
+if __name__ == "__main__":
+    plt.show()
