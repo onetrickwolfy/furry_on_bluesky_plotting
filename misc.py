@@ -20,26 +20,18 @@ daily_data = pd.read_csv(lexicon.files.processed_daily)
 start = min(daily_data['date'])
 end = max(daily_data['date'])
 
-# Setting up the main area for the plots.
-figure, axes = plt.subplots(1, 3, sharex=True, sharey=True, figsize=(12,5))
-plt.suptitle(f'Actvity on furryli.st from {start} to {end}', weight='bold')
-figure.supxlabel("Months")
-figure.supylabel("Weekday")
-
-
-
 sns.set_theme(style="darkgrid")
-g = sns.jointplot(x="total_bill", y="tip", data=daily_data,
-                  kind="reg", truncate=False,
-                  xlim=(0, 60), ylim=(0, 12),
-                  color="m", height=7)
+sns.lineplot(data=daily_data, y="furries_added", x="elapsed_day", label="new Furries")
+sns.lineplot(data=daily_data, y="new_bsk_users", x="elapsed_day", label="New Bluesky Users")
+# sns.lineplot(data=daily_data, y="daily_likes", x="elapsed_day", label="Posts Liked")
+# sns.lineplot(data=daily_data, y="furries_added", x="elapsed_day", label="Furries Added")
+
+plt.legend()
+
+# likes_according_to_posts.set_axis_labels("Daily Posts", "Daily Likes")
 
 # Rendering
 # --------------
-
-figure.tight_layout(pad=1.0)
-figure.savefig(lexicon.files.heatmaps_plots)
-
 
 # Only showing if called from main.
 if __name__ == "__main__":
