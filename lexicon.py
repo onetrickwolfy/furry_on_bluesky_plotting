@@ -53,6 +53,6 @@ files = SimpleNamespace(
     interactions = _absolute_path("data/raw/interactions.csv"),
     new_furries = _absolute_path("data/raw/new_furries.csv"),
     users = _absolute_path("data/raw/users.csv"),
-    processed_daily = _absolute_path("data/processed/processed_dailya.csv"),
+    processed_daily = _absolute_path("data/processed/processed_daily.csv"),
     heatmaps_plots = _absolute_path("data/plots/heatmaps.png")
 )
