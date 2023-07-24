@@ -56,7 +56,7 @@ weekly_posts = pd.pivot_table(
     values='daily_posts',
     aggfunc='sum'
 )
-
+print(weekly_posts)
 sns.heatmap(
     weekly_posts, annot=True, fmt="d", linewidths=1,
     square=True, cbar=1,  cmap='Blues',ax=axes[1],

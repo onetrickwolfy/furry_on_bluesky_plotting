@@ -39,19 +39,19 @@ daily_data = pd.merge(
 )
 
 # 0 furries were added these day
-daily_data['furries_added'] = daily_data['furries_added'].fillna(0)
+daily_data['daily_furries'] = daily_data['daily_furries'].fillna(0).astype('int')
 
 # Cumulative sum of the total amount of furries
-daily_data['total_furries'] = daily_data['furries_added'].cumsum()
+daily_data['total_furries'] = daily_data['daily_furries'].cumsum().astype('int')
 
 # Cumulative sum of the total amount of likes
-daily_data['total_likes'] = daily_data['daily_likes'].cumsum()
+daily_data['total_likes'] = daily_data['daily_likes'].cumsum().astype('int')
 
 # Cumulative sum of the total amount of posts
-daily_data['total_posts'] = daily_data['daily_posts'].cumsum()
+daily_data['total_posts'] = daily_data['daily_posts'].cumsum().astype('int')
 
 # How many bsky users were registered that days
-daily_data['new_bsk_users'] = daily_data['total_bsky_users'].diff()
+daily_data['new_bsk_users'] = daily_data['total_bsky_users'].diff().fillna(0).astype('int')
 
 # Parsing date s
 daily_data['elapsed_day'] = daily_data.reset_index().index
