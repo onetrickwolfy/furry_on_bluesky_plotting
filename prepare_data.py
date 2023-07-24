@@ -44,10 +44,14 @@ daily_data['furries_added'] = daily_data['furries_added'].fillna(0)
 # Cumulative sum of the total amount of furries
 daily_data['total_furries'] = daily_data['furries_added'].cumsum()
 
+# Cumulative sum of the total amount of likes
+daily_data['total_likes'] = daily_data['daily_likes'].cumsum()
 
-# Cumulative sum of the total amount of furries
+# Cumulative sum of the total amount of posts
+daily_data['total_posts'] = daily_data['daily_posts'].cumsum()
+
+# How many bsky users were registered that days
 daily_data['new_bsk_users'] = daily_data['total_bsky_users'].diff()
-daily_data['total_bsky_users'][0] = 0
 
 # Parsing date s
 daily_data['elapsed_day'] = daily_data.reset_index().index

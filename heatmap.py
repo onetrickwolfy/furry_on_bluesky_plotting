@@ -15,7 +15,7 @@ import lexicon
 # Setting theme.
 sns.set_theme(style="darkgrid")
 
-# Preparing data aqnd extracting infos about them
+# Preparing data
 daily_data = pd.read_csv(lexicon.files.processed_daily) 
 start = min(daily_data['date'])
 end = max(daily_data['date'])
@@ -90,7 +90,7 @@ axes[2].set_title("Total likes")
 # --------------
 
 figure.tight_layout(pad=1.0)
-figure.savefig(lexicon.files.heatmaps_plots)
+figure.savefig(lexicon.files.daytoday)
 
 # Only showing if called from main.
 if __name__ == "__main__":
