@@ -2,4 +2,4 @@
 Plotting data from furrylist
 
 TO DO LIST:
-    Prepare data with numpy.
+    Switch from seaborn to matplotlib.
