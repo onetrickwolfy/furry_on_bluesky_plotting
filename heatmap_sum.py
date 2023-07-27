@@ -33,9 +33,9 @@ figure.supxlabel("Months")
 figure.supylabel("Weekday")
 
 # Adding the legends
-axes[0].set_title("Prediction\n", fontsize=12)
-axes[1].set_title("Day to day activity\n", fontsize=12)
-axes[2].set_title("Cumulated\n", fontsize=12)
+axes[0].set_title("Furries joining the feed\n", fontsize=12)
+axes[1].set_title("Skeets posted\n", fontsize=12)
+axes[2].set_title("Like button smashed\n", fontsize=12)
 
 # Plotting
 # --------------
