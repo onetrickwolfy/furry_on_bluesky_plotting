@@ -32,10 +32,7 @@ users = pd.read_csv(lexicon.files.users)
 
 # Merging according to date
 daily_data = pd.merge(
-    pd.merge(
-        interactions,new_furries, left_on='date', right_on='date', suffixes=("", "_drop"), how='left',
-    ),
-    users, on='date', how='left', suffixes=("", "_drop"),
+    interactions,new_furries, left_on='date', right_on='date', suffixes=("", "_drop"), how='left'
 )
 
 # 0 furries were added these day
@@ -50,17 +47,12 @@ daily_data['total_likes'] = daily_data['daily_likes'].cumsum().astype('int')
 # Cumulative sum of the total amount of posts
 daily_data['total_posts'] = daily_data['daily_posts'].cumsum().astype('int')
 
-# How many bsky users were registered that days
-daily_data['new_bsk_users'] = daily_data['total_bsky_users'].diff().fillna(0).astype('int')
-
-# Parsing date s
+# Parsing dates
 daily_data['elapsed_day'] = daily_data.reset_index().index
 daily_data['date'] = pd.to_datetime(daily_data['date'])
 daily_data['weekday'] = daily_data['date'].dt.day_name()
 daily_data['month'] = daily_data['date'].dt.month_name()
 daily_data['day'] = daily_data['date'].dt.day
-
-
 
 # Exporiting data
 # --------------------------
