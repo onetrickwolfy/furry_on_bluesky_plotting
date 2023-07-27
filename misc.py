@@ -28,9 +28,9 @@ end = max(daily_data['date'])
 
 # Setting up the main area for the plots.
 figure, axes = plt.subplots(3, 3, figsize=(4*3,3*3))
-
-plt.suptitle(f'Actvity on furryli.st from {start} to {end}', weight='bold', fontsize=16)
+plt.suptitle(f'Activity on furryli.st from {start} to {end}', weight='bold', fontsize=16)
 figure.supxlabel("Elapsed Days", fontsize=16)
+
 # Adding the legends
 axes[0, 0].set_title("Prediction\n", fontsize=14)
 axes[0, 1].set_title("Day to day activity\n", fontsize=14)
@@ -52,7 +52,7 @@ sns.regplot(data=daily_data, x="elapsed_day", y="daily_likes",
             label="Predicted New Likes"
 ).legend()
 
-sns.regplot(data=daily_data, x="elapsed_day", y="furries_added",
+sns.regplot(data=daily_data, x="elapsed_day", y="daily_furries",
             ax = axes[2, 0], lowess=True,
             scatter_kws={'s': 5, 'alpha': 0.7},
             label="Predicted New Users"
@@ -69,7 +69,7 @@ sns.lineplot(data=daily_data, x="elapsed_day", y="daily_likes",
             ax = axes[1, 1], label="New Likes"
 )
 
-sns.lineplot(data=daily_data, x="elapsed_day", y="furries_added",
+sns.lineplot(data=daily_data, x="elapsed_day", y="daily_furries",
             ax = axes[2, 1], label="New Users"
 )
 
