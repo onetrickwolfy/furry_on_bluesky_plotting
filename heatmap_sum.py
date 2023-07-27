@@ -101,7 +101,7 @@ axes[2].set(xlabel="", ylabel="")
 # --------------
 
 figure.tight_layout(pad=1.0)
-figure.savefig(lexicon.files.daytoday)
+figure.savefig(lexicon.files.heatmaps_plots)
 
 # Only showing if called from main.
 if __name__ == "__main__":
