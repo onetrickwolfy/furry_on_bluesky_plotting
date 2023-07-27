@@ -55,5 +55,6 @@ files = SimpleNamespace(
     users = _absolute_path("data/raw/users.csv"),
     processed_daily = _absolute_path("data/processed/processed_daily.csv"),
     heatmaps_plots = _absolute_path("data/plots/heatmaps.png"),
-    daytoday = _absolute_path("data/plots/daytoday.png")
+    daytoday = _absolute_path("data/plots/daytoday.png"),
+    activity_at_x_day = _absolute_path("data/plots/activity_at_x_day.png"),
 )
