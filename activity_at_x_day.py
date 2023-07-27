@@ -37,9 +37,9 @@ figure, axes = plt.subplots(3, 1, figsize=(16,10))
 plt.suptitle(f'Activity on furryli.st from the 1st to the {END_DAY}th of each month.\n', weight='bold')
 
 # Adding the legends
-axes[0].set_title("How many times the like button was hit!\n", fontsize=12)
+axes[0].set_title("How many times the like button was hit:\n", fontsize=12)
 axes[1].set_title("Skeets posted for each day:\n", fontsize=12)
-axes[2].set_title("New furries tracked by furryli.st\n", fontsize=12)
+axes[2].set_title("New furries tracked by furryli.st:\n", fontsize=12)
 
 # Like button presse
 sns.barplot(daily_data,
