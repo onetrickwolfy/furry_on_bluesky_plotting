@@ -37,9 +37,6 @@ axes[0].set_title("Prediction\n", fontsize=12)
 axes[1].set_title("Day to day activity\n", fontsize=12)
 axes[2].set_title("Cumulated\n", fontsize=12)
 
-# Setting up the palette
-COLORS = ["Mahogany", "Bittersweet", "Burnt Orange", "Atomic Tangerine", "Banana Mania"]
-
 # Plotting
 # --------------
 
